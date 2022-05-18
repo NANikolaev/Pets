@@ -1,5 +1,7 @@
-import Navigation from "./components/Header/NavigationBar";
 import {Route, Routes} from "react-router-dom";
+
+import Navigation from "./components/Header/NavigationBar";
+import Login from "./components/Login/Login";
 
 function App() {
   return (
@@ -8,7 +10,7 @@ function App() {
       <Navigation/>
     <main id="site-content">
        <Routes>
-         
+         <Route path="/login" element={<Login/>}></Route>
        </Routes>
     </main>
 
