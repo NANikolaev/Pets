@@ -15,7 +15,7 @@ function Dashboard() {
             <ul className="other-pets-list">
 
                 {pets.length > 0
-                    ? pets.map(x => <DashBoardCard pet={x} />)
+                    ? pets.map(x => <DashBoardCard key={x._id} pet={x} />)
                     : <p className="no-pets">No pets in database!</p>
                 }
 
