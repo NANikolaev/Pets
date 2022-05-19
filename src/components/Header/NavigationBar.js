@@ -1,10 +1,10 @@
 
 import { Link } from "react-router-dom"
 
-function Navigation() {
-    let user = localStorage.getItem('user')
-
-
+function Navigation({
+    user
+}) {
+    
     return (
         <header id="site-header">
 
@@ -14,7 +14,7 @@ function Navigation() {
 
                     {user
                         ? <div id="user">
-                            <span>Welcome, ...</span>
+                            <span>Welcome,{user.email} </span>
                             <Link className="button" to="/my-pets">My Pets</Link>
                             <Link className="button" to="/add-pet">Add Pet</Link>
                             <Link className="button" to="/logout">Logout</Link>

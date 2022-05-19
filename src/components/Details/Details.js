@@ -2,7 +2,7 @@ import { useParams, Link } from "react-router-dom"
 import { useEffect, useState } from "react"
 import specificPet from "./detail-service"
 
-export default function Details({ isLogged }) {
+export default function Details({ user }) {
     let [pet, changeState] = useState({})
     let id = useParams().id
     useEffect(() => {
@@ -17,11 +17,13 @@ export default function Details({ isLogged }) {
                 <p className="type">Type: {pet.type}</p>
                 <p className="img"><img src={pet.imageUrl} /></p>
                 <div className="actions">
-                    
+                    {user.id == pet._ownerId
+                        ? <>
                             <Link className="button" to={`/edit/pet/${pet._id}`}>Edit</Link>
                             <Link className="button" to={`/delete/pet/${pet._id}`}>Delete</Link>
-                   
-
+                        </>
+                        : ''
+                    }
 
 
                     <div className="likes">
