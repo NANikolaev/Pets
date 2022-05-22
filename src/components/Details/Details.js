@@ -17,13 +17,14 @@ export default function Details({ user }) {
                 <p className="type">Type: {pet.type}</p>
                 <p className="img"><img src={pet.imageUrl} /></p>
                 <div className="actions">
-                    {user.id == pet._ownerId
+                    {user._id == pet._ownerId
                         ? <>
                             <Link className="button" to={`/edit/pet/${pet._id}`}>Edit</Link>
                             <Link className="button" to={`/delete/pet/${pet._id}`}>Delete</Link>
                         </>
                         : ''
                     }
+                    {user._id !== pet._ownerId ? <a className="button" href="#">Like</a> : ''}
 
 
                     <div className="likes">
