@@ -26,7 +26,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Dashboard />}></Route>
           <Route path="/login" element={<Login changeOutState={changeOutState} />}></Route>
-          <Route path="/register" element={<Register />}></Route>
+          <Route path="/register" element={<Register changeOutState={changeOutState} />}></Route>
           <Route path="/details/pet/:id" element={<Details user={user} />}></Route>
         </Routes>
       </main>
