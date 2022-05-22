@@ -8,6 +8,8 @@ import Register from "./components/Register/Register";
 import Dashboard from "./components/Dashboard/Dashboard";
 import Details from "./components/Details/Details";
 import Logout from "./components/Logout/Logout";
+import AddPet from "./components/Add-Pet/AddPet";
+
 
 
 function App() {
@@ -29,6 +31,7 @@ function App() {
           <Route path="/register" element={<Register changeOutState={changeOutState} />}></Route>
           <Route path="/logout" element={<Logout changeOutState={changeOutState} />}></Route>
           <Route path="/details/pet/:id" element={<Details user={user} />}></Route>
+          <Route path="/add-pet" element={<AddPet user={user}/>}></Route>
         </Routes>
       </main>
 
