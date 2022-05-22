@@ -1,6 +1,6 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+
 
 import Navigation from "./components/Header/NavigationBar";
 import Login from "./components/Login/Login";
@@ -30,7 +30,7 @@ function App() {
           <Route path="/login" element={<Login changeOutState={changeOutState} />}></Route>
           <Route path="/register" element={<Register changeOutState={changeOutState} />}></Route>
           <Route path="/logout" element={<Logout changeOutState={changeOutState} />}></Route>
-          <Route path="/details/pet/:id" element={<Details user={user} />}></Route>
+          <Route path="/details/pet/:id/*" element={<Details user={user} />}></Route>
           <Route path="/add-pet" element={<AddPet user={user}/>}></Route>
         </Routes>
       </main>

@@ -1,9 +1,12 @@
-import { useParams, Link } from "react-router-dom"
+import { useParams, Route, Routes, Link } from "react-router-dom"
 import { useEffect, useState } from "react"
+
+import Edit from "../Edit/Edit"
 import specificPet from "./detail-service"
 
 export default function Details({ user }) {
     let [pet, changeState] = useState({})
+
     let id = useParams().id
     useEffect(() => {
         specificPet(id)
@@ -19,8 +22,8 @@ export default function Details({ user }) {
                 <div className="actions">
                     {user._id == pet._ownerId
                         ? <>
-                            <Link className="button" to={`/edit/pet/${pet._id}`}>Edit</Link>
-                            <Link className="button" to={`/delete/pet/${pet._id}`}>Delete</Link>
+                            <Link className="button" to='edit'>Edit</Link>
+                            <Link className="button" to='delete'>Delete</Link>
                         </>
                         : ''
                     }
@@ -31,6 +34,10 @@ export default function Details({ user }) {
                         <img className="hearts" src="/images/heart.png" />
                         <span id="total-likes">Likes: 0</span>
                     </div>
+                    <Routes>
+                        <Route path="edit" element={<Edit pet={pet} />}></Route>
+                        <Route path="delete" element={<Edit pet={pet} />}></Route>
+                    </Routes>
 
                 </div>
             </div>
