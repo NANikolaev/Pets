@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react"
-import { useParams } from "react-router-dom"
+import { useParams,useNavigate } from "react-router-dom"
 import specificPet from "../Details/detail-service"
-
+import edit from "./service"
 
 function Edit({user}) {
     const [pet, changePet] = useState({})
     let id = useParams().id
+    let navigate=useNavigate()
     useEffect(() => {
         specificPet(id)
             .then(pet => changePet(pet))
@@ -15,7 +16,7 @@ function Edit({user}) {
 
     return (
         <section id="edit-page" className="edit">
-            <form id="edit-form" action="#" method="">
+            <form id="edit-form" action="#" method="PUT" onSubmit={(e)=>edit(e,id,user.accessToken)&& navigate(-1)}>
                 <fieldset>
                     <legend>Edit my Pet</legend>
                     <p className="field">
