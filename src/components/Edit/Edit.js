@@ -1,16 +1,13 @@
 import { useState, useEffect } from "react"
 import { useParams,useNavigate } from "react-router-dom"
-import specificPet from "../Details/detail-service"
+import useExtractData from "../../hooks/useExtractData"
 import edit from "./service"
 
 function Edit({user}) {
-    const [pet, changePet] = useState({})
     let id = useParams().id
     let navigate=useNavigate()
-    useEffect(() => {
-        specificPet(id)
-            .then(pet => changePet(pet))
-    },[])
+    let pet=useExtractData(`pets/${id}`)
+   
 
 
 

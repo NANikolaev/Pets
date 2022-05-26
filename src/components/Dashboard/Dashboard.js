@@ -1,13 +1,9 @@
-import { useState, useEffect } from "react"
+import useExtractData from "../../hooks/useExtractData"
 import DashBoardCard from "./DashBoardCard"
-import getAllPets from "./dashboard-service"
+
 
 function Dashboard() {
-    let [pets, changeState] = useState([])
-    useEffect(()=>{
-        getAllPets()
-        .then(pets=>changeState(pets))
-    },[])
+    let pets=useExtractData('pets?sortBy=_createdOn%20desc')
 
     return (
         <section id="dashboard-page" className="dashboard">

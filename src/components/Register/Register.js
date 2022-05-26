@@ -1,13 +1,18 @@
 import register from "./register-service"
 import { useNavigate } from "react-router-dom"
+import OuthContext from "../../contexts/OuthContext"
+import { useContext } from "react"
 
-export default function Register({changeOutState}){
+export default function Register(){
+
+let changeOutState=useContext(OuthContext)
 
 let navigate=useNavigate()
 
     return (
         <section id="register-page" className="register">
-        <form id="register-form" action="" method="POST" onSubmit={(e)=>register(e,changeOutState) && navigate('/')}>
+        <form id="register-form" action="" method="POST" 
+         onSubmit={(e)=>register(e,changeOutState) && navigate('/',{replace:true})}>
             <fieldset>
                 <legend>Register Form</legend>
                 <p className="field">

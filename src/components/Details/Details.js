@@ -1,17 +1,11 @@
 import { useParams, Link } from "react-router-dom"
-import { useEffect, useState } from "react"
+import useExtractData from "../../hooks/useExtractData"
 
-import specificPet from "./detail-service"
+
 
 export default function Details({ user }) {
-    let [pet, changeState] = useState({})
-
-    let id = useParams().id
-    useEffect(() => {
-        specificPet(id)
-            .then(pet => changeState(pet))
-    }, [])
-
+    let id=useParams().id
+    let pet=useExtractData(`pets/${id}`)
     return (
 
         <section id="details-page" className="details">

@@ -1,12 +1,11 @@
-
+import OuthContext from "../../contexts/OuthContext";
+import { useContext } from "react";
 import login from "./login-service"
 import { useNavigate } from "react-router-dom"
 
-export default function Login({
-    changeOutState
-}) {
+export default function Login() {
     let navigate=useNavigate()
-
+     let changeOutState=useContext(OuthContext)
  //   function changeHandler(e) {
  //       let name = e.target.name
   //      let value = e.target.value
@@ -16,7 +15,8 @@ export default function Login({
 
     return (
         <section id="login-page" className="login">
-            <form id="login-form" action="" method="POST" onSubmit={(e)=>login(e,changeOutState) && navigate('/') } >
+            <form id="login-form" action="" method="POST" 
+            onSubmit={(e)=>login(e,changeOutState) && navigate('/',{replace:true}) } >
                 <fieldset>
                     <legend>Login Form</legend>
                     <p className="field">
