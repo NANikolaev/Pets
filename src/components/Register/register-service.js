@@ -18,7 +18,6 @@ function register(e, changeOutState) {
     })
         .then(res => res.json())
         .then(userData => {
-            localStorage.setItem('user', JSON.stringify(userData))
             changeOutState(user => userData)
         })
 }

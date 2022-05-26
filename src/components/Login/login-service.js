@@ -14,7 +14,6 @@ function login(e, changeOutState,) {
     })
         .then(res => res.json())
         .then(userData => {
-            localStorage.setItem('user', JSON.stringify(userData))
             changeOutState(user => userData)
         })
 
